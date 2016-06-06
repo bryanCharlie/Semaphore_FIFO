@@ -8,7 +8,7 @@ public class FIFO{
 	public void add(Semaphore s){
 		mutex.acquire();
 		queue.add(s);
-		mutex.release();
+		mutex.release(); //immediatly release mutex to allow other waiting threads to add their Semaphore to queue.
 		s.acquire();
 	}
 	
