@@ -20,13 +20,11 @@ public class FIFO{
 	}
 	
 	public void remove(int num){
-		mutex.acquire();
 		Semaphore s = null;
 		for(int i = 0; i < num; i++){
 			s = queue.poll();
 			s.release();
 		}
-		mutex.release();
 	}
 	
 	public int size(){
